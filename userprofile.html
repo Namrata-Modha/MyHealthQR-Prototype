@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            background-color: #6a3bc5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .left-section {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .left-section img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            background-color: #ccc;
+        }
+        .profile-info input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .right-section {
+            flex: 2;
+            min-width: 250px;
+            max-width: 700px;
+        }
+        .section-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .qr-code img {
+            width: 200px;
+            height: 200px;
+            display: block;
+            margin: 20px auto;
+        }
+        .save-btn {
+            background-color: #6a3bc5;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .save-btn:hover {
+            background-color: #56329d;
+        }
+        /* Logout Button Styling */
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <!-- Logout Button -->
+        <button class="logout-btn" onclick="logout()">Logout</button>
+
+        <!-- Left section with User Information -->
+        <div class="left-section">
+            <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Profile Image">
+            <div class="profile-info">
+                <div class="section">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" value="John Doe" readonly>
+                </div>
+                <div class="section">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="johndoe@example.com" readonly>
+                </div>
+                <div class="section">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" value="+1234567890" readonly>
+                </div>
+                <div class="section">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" value="1990-01-01" readonly>
+                </div>
+                <!-- New Field for Address -->
+                <div class="section">
+                    <label for="address">Home Address</label>
+                    <input type="text" id="address" value="123 Main St, Springfield" readonly>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right section with Emergency Contact, Medical Info, and QR Code -->
+        <div class="right-section">
+            <!-- Emergency Contact -->
+            <div class="section">
+                <div class="section-header">Emergency Contact</div>
+                <label for="contactName">Contact Name</label>
+                <input type="text" id="contactName" value="Jamie Smith" readonly><br><br>
+                <label for="contactNumber">Contact Number</label>
+                <input type="text" id="contactNumber" value="+0987654321" readonly><br><br>
+            </div>
+
+            <!-- Medical Information -->
+            <div class="section">
+                <div class="section-header">Medical Information</div>
+                <label for="bloodType">Blood Type</label>
+                <input type="text" id="bloodType" value="O+" readonly><br><br>
+                <label for="height">Height</label>
+                <input type="text" id="height" value="180 cm" readonly><br><br>
+                <label for="weight">Weight</label>
+                <input type="text" id="weight" value="75 kg" readonly><br><br>
+                <label for="allergies">Allergies</label>
+                <input type="text" id="allergies" value="Peanuts" readonly><br><br>
+                <label for="medications">Current Medications</label>
+                <input type="text" id="medications" value="None" readonly><br><br>
+                <!-- New Field for Health Conditions -->
+                <label for="healthConditions">Health Conditions</label>
+                <input type="text" id="healthConditions" value="None" readonly><br><br>
+            </div>
+
+            <!-- Self-care Section (Optional, you can adjust this as needed) -->
+            <div class="section">
+                <div class="section-header">Self-care</div>
+                <textarea id="selfCare" placeholder="Self-care notes (optional)" readonly>Exercise regularly and maintain a balanced diet.</textarea>
+            </div>
+
+            <!-- QR Code -->
+            <div class="section qr-code">
+                <div class="section-header">QR Code</div>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=JohnDoeProfile" alt="QR Code">
+            </div>
+
+            <!-- Save Changes Button -->
+            <button class="save-btn" disabled>Save Changes</button>
+        </div>
+    </div>
+
+    <script>
+        // Logout function to redirect to the signup page
+        function logout() {
+            window.location.href = "index.html";  // Redirect to signup page
+        }
+    </script>
+
+</body>
+</html>
