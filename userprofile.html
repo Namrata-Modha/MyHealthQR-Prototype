@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             background-color: #6a3bc5;
@@ -48,6 +49,7 @@
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            position: relative;
         }
         .right-section {
             flex: 2;
@@ -97,6 +99,16 @@
         .logout-btn:hover {
             background-color: #c0392b;
         }
+        /* Eye Icon Styling */
+        .eye-icon {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .eye-container {
+            position: relative;
+        }
     </style>
 </head>
 <body>
@@ -111,24 +123,31 @@
             <div class="profile-info">
                 <div class="section">
                     <label for="fullName">Full Name</label>
-                    <input type="text" id="fullName" value="John Doe" readonly>
+                    <div class="eye-container">
+                        <input type="text" id="fullName" value="John Doe" readonly>
+                        <i class="fas fa-eye-slash eye-icon" id="eyeFullName" onclick="toggleVisibility('fullName', 'eyeFullName')"></i>
+                    </div>
                 </div>
                 <div class="section">
                     <label for="email">Email</label>
-                    <input type="email" id="email" value="johndoe@example.com" readonly>
+                    <div class="eye-container">
+                        <input type="email" id="email" value="johndoe@example.com" readonly>
+                        <i class="fas fa-eye-slash eye-icon" id="eyeEmail" onclick="toggleVisibility('email', 'eyeEmail')"></i>
+                    </div>
                 </div>
                 <div class="section">
                     <label for="phone">Phone Number</label>
-                    <input type="text" id="phone" value="+1234567890" readonly>
+                    <div class="eye-container">
+                        <input type="text" id="phone" value="+1234567890" readonly>
+                        <i class="fas fa-eye-slash eye-icon" id="eyePhone" onclick="toggleVisibility('phone', 'eyePhone')"></i>
+                    </div>
                 </div>
                 <div class="section">
                     <label for="dob">Date of Birth</label>
-                    <input type="date" id="dob" value="1990-01-01" readonly>
-                </div>
-                <!-- New Field for Address -->
-                <div class="section">
-                    <label for="address">Home Address</label>
-                    <input type="text" id="address" value="123 Main St, Springfield" readonly>
+                    <div class="eye-container">
+                        <input type="date" id="dob" value="1990-01-01" readonly>
+                        <i class="fas fa-eye-slash eye-icon" id="eyeDob" onclick="toggleVisibility('dob', 'eyeDob')"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -138,28 +157,46 @@
             <!-- Emergency Contact -->
             <div class="section">
                 <div class="section-header">Emergency Contact</div>
-                <label for="contactName">Contact Name</label>
-                <input type="text" id="contactName" value="Jamie Smith" readonly><br><br>
-                <label for="contactNumber">Contact Number</label>
-                <input type="text" id="contactNumber" value="+0987654321" readonly><br><br>
+                <div class="eye-container">
+                    <label for="contactName">Contact Name</label>
+                    <input type="text" id="contactName" value="Jamie Smith" readonly>
+                    <i class="fas fa-eye-slash eye-icon" id="eyeContactName" onclick="toggleVisibility('contactName', 'eyeContactName')"></i>
+                </div>
+                <div class="eye-container">
+                    <label for="contactNumber">Contact Number</label>
+                    <input type="text" id="contactNumber" value="+0987654321" readonly>
+                    <i class="fas fa-eye-slash eye-icon" id="eyeContactNumber" onclick="toggleVisibility('contactNumber', 'eyeContactNumber')"></i>
+                </div>
             </div>
 
             <!-- Medical Information -->
             <div class="section">
                 <div class="section-header">Medical Information</div>
-                <label for="bloodType">Blood Type</label>
-                <input type="text" id="bloodType" value="O+" readonly><br><br>
-                <label for="height">Height</label>
-                <input type="text" id="height" value="180 cm" readonly><br><br>
-                <label for="weight">Weight</label>
-                <input type="text" id="weight" value="75 kg" readonly><br><br>
-                <label for="allergies">Allergies</label>
-                <input type="text" id="allergies" value="Peanuts" readonly><br><br>
-                <label for="medications">Current Medications</label>
-                <input type="text" id="medications" value="None" readonly><br><br>
-                <!-- New Field for Health Conditions -->
-                <label for="healthConditions">Health Conditions</label>
-                <input type="text" id="healthConditions" value="None" readonly><br><br>
+                <div class="eye-container">
+                    <label for="bloodType">Blood Type</label>
+                    <input type="text" id="bloodType" value="O+" readonly>
+                    <i class="fas fa-eye-slash eye-icon" id="eyeBloodType" onclick="toggleVisibility('bloodType', 'eyeBloodType')"></i>
+                </div>
+                <div class="eye-container">
+                    <label for="height">Height</label>
+                    <input type="text" id="height" value="180 cm" readonly>
+                    <i class="fas fa-eye-slash eye-icon" id="eyeHeight" onclick="toggleVisibility('height', 'eyeHeight')"></i>
+                </div>
+                <div class="eye-container">
+                    <label for="weight">Weight</label>
+                    <input type="text" id="weight" value="75 kg" readonly>
+                    <i class="fas fa-eye-slash eye-icon" id="eyeWeight" onclick="toggleVisibility('weight', 'eyeWeight')"></i>
+                </div>
+                <div class="eye-container">
+                    <label for="allergies">Allergies</label>
+                    <input type="text" id="allergies" value="Peanuts" readonly>
+                    <i class="fas fa-eye-slash eye-icon" id="eyeAllergies" onclick="toggleVisibility('allergies', 'eyeAllergies')"></i>
+                </div>
+                <div class="eye-container">
+                    <label for="medications">Current Medications</label>
+                    <input type="text" id="medications" value="None" readonly>
+                    <i class="fas fa-eye-slash eye-icon" id="eyeMedications" onclick="toggleVisibility('medications', 'eyeMedications')"></i>
+                </div>
             </div>
 
             <!-- Self-care Section (Optional, you can adjust this as needed) -->
@@ -182,7 +219,18 @@
     <script>
         // Logout function to redirect to the signup page
         function logout() {
-            window.location.href = "index.html";  // Redirect to signup page
+            window.location.href = "signup.html";  // Redirect to signup page
+        }
+
+        // Toggle visibility function for each field
+        function toggleVisibility(inputId, eyeId) {
+            var inputField = document.getElementById(inputId);
+            var eyeIcon = document.getElementById(eyeId);
+            if (inputField.type === "password" || inputField.type === "text") {
+                inputField.type = inputField.type === "password" ? "text" : "password";  // Toggle visibility
+                eyeIcon.classList.toggle('fa-eye-slash');
+                eyeIcon.classList.toggle('fa-eye');
+            }
         }
     </script>
 
