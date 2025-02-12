@@ -7,13 +7,14 @@
     <link href="styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* Basic styles */
         body {
             background-color: #f4f4f4;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
         }
-
+    
         .container {
             background-color: white;
             padding: 30px;
@@ -23,40 +24,40 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-
+    
         h1 {
             text-align: center;
             color: #6a3bc5;
             margin-bottom: 30px;
         }
-
+    
         .row {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
-
+    
         .col {
             flex: 1;
             min-width: 300px;
         }
-
+    
         .section {
             margin-bottom: 20px;
         }
-
+    
         .section-header {
             font-size: 20px;
             font-weight: bold;
             color: #6a3bc5;
         }
-
+    
         label {
             font-weight: bold;
             display: block;
             margin-bottom: 5px;
         }
-
+    
         .profile-info span {
             font-size: 16px;
             padding: 8px;
@@ -65,7 +66,7 @@
             display: block;
             background-color: #fafafa;
         }
-
+    
         .quick-help-icon {
             position: fixed;
             bottom: 30px;
@@ -78,11 +79,12 @@
             cursor: pointer;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
-
+    
         .quick-help-icon:hover {
             background-color: #56329d;
         }
-
+    
+        /* Quick Help Popup */
         .quick-help-popup {
             position: fixed;
             bottom: 90px;
@@ -91,16 +93,19 @@
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             width: 300px;
+            max-width: 90%; /* Makes sure it doesn't overflow */
             padding: 20px;
             display: none;
+            max-height: 80%;
+            overflow-y: auto;
         }
-
+    
         .quick-help-popup p {
             font-size: 16px;
             color: #333;
             margin: 10px 0;
         }
-
+    
         .quick-help-popup button {
             background-color: #6a3bc5;
             color: white;
@@ -110,41 +115,43 @@
             cursor: pointer;
             font-size: 14px;
         }
-
+    
         .quick-help-popup button:hover {
             background-color: #56329d;
         }
-
+    
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
             }
-
+    
             h1 {
                 font-size: 24px;
                 margin-bottom: 20px;
             }
-
+    
             .profile-info {
                 padding: 10px 0;
             }
-
+    
             .section {
                 margin-bottom: 10px;
             }
-
+    
             .quick-help-icon {
                 bottom: 20px;
                 right: 20px;
             }
-
+    
             .quick-help-popup {
-                width: 100%;
+                width: 90%;
                 bottom: 70px;
+                left: 5%;
             }
         }
     </style>
+    
 </head>
 <body>
 
