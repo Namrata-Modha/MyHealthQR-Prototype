@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create an Account</title>
+    <title>Signup - MyHealthQR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             background-color: #6a3bc5;
@@ -13,48 +14,92 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            padding: 20px;
         }
         .form-container {
             background-color: white;
-            padding: 100px;
-            border-radius: 8px;
-            width: 300px;
-            text-align: center;
-        }
-        .form-container h2 {
-            margin-bottom: 20px;
-        }
-        input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
+            padding: 30px;
+            border-radius: 10px;
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            max-width: 600px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
         .form-container button {
-            width: 100%;
-            padding: 10px;
             background-color: #6a3bc5;
             color: white;
+            padding: 15px;
+            width: 100%;
             border: none;
             border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #56329d;
+        }
+        .terms-container {
+            margin-bottom: 15px;
+        }
+        .terms-container label {
+            font-size: 14px;
+        }
+        .links {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .links a {
+            color: #6a3bc5;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
     <div class="form-container">
-        <h2>Create an Account</h2>
-        <form action="#" method="POST">
-            <input type="text" placeholder="First Name" required>
-            <input type="text" placeholder="Last Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="tel" placeholder="Phone Number" required>
-            <input type="date" placeholder="Date of Birth" required>
-            <input type="checkbox" required> Guardian consent
-            <button type="submit">Create Your Account</button>
-        </form>
-        <p>Already have an account? <a href="login.html">Login</a></p>
+        <h2>Signup for MyHealthQR</h2>
+
+        <div class="terms-container">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <div class="terms-container">
+                <label for="terms">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>.
+                </label>
+            </div>
+
+            <div class="terms-container">
+                <label for="pipedacompliance">
+                    <input type="checkbox" id="pipedacompliance" name="pipedacompliance" required>
+                    I consent to the collection and use of my personal data in compliance with <a href="https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/pipeda_brief/" target="_blank">PIPEDA (Canadian law)</a>.
+                </label>
+            </div>
+
+            <button type="submit">Sign Up</button>
+        </div>
+
+        <!-- Links to Login and Forgot Password -->
+        <div class="links">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+            <p><a href="forgot-password.html">Forgot your password?</a></p>
+        </div>
     </div>
 
 </body>

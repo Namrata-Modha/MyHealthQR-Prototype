@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - MyHealthQR</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #6a3bc5;
+            margin-bottom: 30px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-header {
+            font-size: 20px;
+            font-weight: bold;
+            color: #6a3bc5;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .profile-info span {
+            font-size: 16px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+            background-color: #fafafa;
+        }
+
+        .quick-help-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #6a3bc5;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-help-icon:hover {
+            background-color: #56329d;
+        }
+
+        .quick-help-popup {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            display: none;
+        }
+
+        .quick-help-popup p {
+            font-size: 16px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .quick-help-popup button {
+            background-color: #6a3bc5;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .quick-help-popup button:hover {
+            background-color: #56329d;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .profile-info {
+                padding: 10px 0;
+            }
+
+            .section {
+                margin-bottom: 10px;
+            }
+
+            .quick-help-icon {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .quick-help-popup {
+                width: 100%;
+                bottom: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>MyHealthQR - User Profile</h1>
+
+        <!-- Row for Personal Info and Medical Info -->
+        <div class="row">
+            <!-- Personal Info Section (Left) -->
+            <div class="col">
+                <div class="section">
+                    <div class="section-header">Personal Information</div>
+                    <div class="profile-info">
+                        <label for="firstName">First Name</label>
+                        <span id="firstName">John</span>
+                    </div>
+
+                    <div class="profile-info">
+                        <label for="lastName">Last Name</label>
+                        <span id="lastName">Doe</span>
+                    </div>
+
+                    <div class="profile-info">
+                        <label for="email">Email</label>
+                        <span id="email">johndoe@example.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medical Info Section (Right) -->
+            <div class="col">
+                <div class="section">
+                    <div class="section-header">Medical Information</div>
+                    <div class="profile-info">
+                        <label for="allergies">Allergies</label>
+                        <span id="allergies">Peanuts</span>
+                    </div>
+
+                    <div class="profile-info">
+                        <label for="medications">Current Medications</label>
+                        <span id="medications">Metformin</span>
+                    </div>
+
+                    <div class="profile-info">
+                        <label for="diagnosis">Diagnosis</label>
+                        <span id="diagnosis">Diabetes Mellitus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row for Care Plans and Emergency Contact -->
+        <div class="row">
+            <!-- Care Plan Section (Left) -->
+            <div class="col">
+                <div class="section">
+                    <div class="section-header">Care Plans</div>
+                    <div class="profile-info">
+                        <label for="carePlanName">Care Plan Name</label>
+                        <span id="carePlanName">Basic Care Plan</span>
+                    </div>
+
+                    <div class="profile-info">
+                        <label for="carePlanCompany">Care Plan Company</label>
+                        <span id="carePlanCompany">HealthCare Inc.</span>
+                    </div>
+
+                    <div class="profile-info">
+                        <label for="effectiveDate">Effective Date</label>
+                        <span id="effectiveDate">2023-01-01</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Quick Help Chatbot Icon -->
+    <div class="quick-help-icon" onclick="togglePopup()">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Quick Help Popup -->
+    <div class="quick-help-popup" id="quickHelpPopup">
+        <div class="section-header">Emergency Self-care Actions</div>
+        <div>
+            <strong>Question 1:</strong> What should be done if the condition worsens?
+            <br>
+            <p>Monitor blood sugar levels regularly. Administer insulin as prescribed. Seek medical assistance if blood sugar remains high or low.</p>
+        </div>
+
+        <div>
+            <strong>Question 2:</strong> What immediate steps should be taken in case of an emergency?
+            <br>
+            <p>If blood sugar falls below 3.0 mmol/L, administer glucose or sugary drink immediately. If unconscious, call emergency services immediately.</p>
+        </div>
+
+        <div>
+            <strong>Question 3:</strong> What medications or treatments are needed in the emergency situation?
+            <br>
+            <p>Insulin as prescribed for managing blood sugar levels. Glucose tablets or syrup if experiencing hypoglycemia. Administer antihypertensive medications if blood pressure is high (if applicable).</p>
+        </div>
+
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        // Function to toggle the Quick Help popup
+        function togglePopup() {
+            var popup = document.getElementById('quickHelpPopup');
+            popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+        }
+
+        // Close the popup
+        function closePopup() {
+            var popup = document.getElementById('quickHelpPopup');
+            popup.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

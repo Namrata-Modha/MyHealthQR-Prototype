@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Logs - MyHealthQR</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+    
+    <!-- Container for Logs Table -->
+    <div class="form-container">
+        <!-- Navigation Bar -->
+        <div class="navbar">
+            <a href="userprofile.html">User Profile</a>
+        </div>
+
+        <!-- Logout Button -->
+        <button class="logout-btn" onclick="logout()">Logout</button>
+
+        <div class="table-header">Emergency Access Logs</div>
+
+        <!-- Logs Table -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Access Time</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example log entry - this would be dynamically filled -->
+                <tr>
+                    <td>1</td>
+                    <td>2025-02-11 12:30:00</td>
+                    <td>2025-02-11 12:30:05</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2025-02-12 14:20:10</td>
+                    <td>2025-02-12 14:20:12</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>2025-02-13 09:10:30</td>
+                    <td>2025-02-13 09:10:35</td>
+                </tr>
+                <!-- More rows can be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap and jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Logout function to redirect to the signup page
+        function logout() {
+            window.location.href = "index.html";  // Redirect to signup page
+        }
+    </script>
+
+</body>
+</html>

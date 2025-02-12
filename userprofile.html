@@ -3,212 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>User Profile - MyHealthQR</title>
+    <link href="styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            background-color: #6a3bc5;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
-        .form-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            width: 100%;
-            max-width: 1200px;
-            position: relative;
-            box-sizing: border-box;
-        }
-        .left-section {
-            flex: 1;
-            min-width: 250px;
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .left-section img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            background-color: #ccc;
-        }
-        .profile-info input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            position: relative;
-        }
-        .right-section {
-            flex: 2;
-            min-width: 250px;
-            max-width: 700px;
-        }
-        .section-header {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .section {
-            margin-bottom: 30px;
-        }
-        .qr-code img {
-            width: 200px;
-            height: 200px;
-            display: block;
-            margin: 20px auto;
-        }
-        .save-btn {
-            background-color: #6a3bc5;
-            color: white;
-            padding: 15px;
-            width: 100%;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .save-btn:hover {
-            background-color: #56329d;
-        }
-        /* Logout Button Styling */
-        .logout-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .logout-btn:hover {
-            background-color: #c0392b;
-        }
-        /* Eye Icon Styling */
-        .eye-icon {
-            cursor: pointer;
-            position: absolute;
-            right: 10px;
-            top: 10px;
-        }
-        .eye-container {
-            position: relative;
-        }
-    </style>
+    
 </head>
 <body>
+    
 
     <div class="form-container">
+        <!-- Navigation Bar (Menu) inside the form container -->
+        <div class="navbar">
+            <a href="logs.html">View Logs</a>
+        </div>
+
         <!-- Logout Button -->
         <button class="logout-btn" onclick="logout()">Logout</button>
 
-        <!-- Left section with User Information -->
         <div class="left-section">
             <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Profile Image">
             <div class="profile-info">
+                <!-- Personal Info Fields -->
                 <div class="section">
-                    <label for="fullName">Full Name</label>
+                    <label for="firstName">First Name</label>
                     <div class="eye-container">
-                        <input type="text" id="fullName" value="John Doe" readonly>
-                        <i class="fas fa-eye-slash eye-icon" id="eyeFullName" onclick="toggleVisibility('fullName', 'eyeFullName')"></i>
+                        <input type="text" id="firstName" value="John" readonly>
+                        <i class="fas fa-eye eye-icon" id="eyeFirstName" onclick="toggleVisibility('firstName', 'eyeFirstName')"></i>
+                    </div>
+                </div>
+                <div class="section">
+                    <label for="lastName">Last Name</label>
+                    <div class="eye-container">
+                        <input type="text" id="lastName" value="Doe" readonly>
+                        <i class="fas fa-eye eye-icon" id="eyeLastName" onclick="toggleVisibility('lastName', 'eyeLastName')"></i>
                     </div>
                 </div>
                 <div class="section">
                     <label for="email">Email</label>
                     <div class="eye-container">
                         <input type="email" id="email" value="johndoe@example.com" readonly>
-                        <i class="fas fa-eye-slash eye-icon" id="eyeEmail" onclick="toggleVisibility('email', 'eyeEmail')"></i>
+                        <i class="fas fa-eye eye-icon" id="eyeEmail" onclick="toggleVisibility('email', 'eyeEmail')"></i>
                     </div>
                 </div>
                 <div class="section">
                     <label for="phone">Phone Number</label>
                     <div class="eye-container">
-                        <input type="text" id="phone" value="+1234567890" readonly>
+                        <input type="password" id="phone" value="+1234567890" readonly>
                         <i class="fas fa-eye-slash eye-icon" id="eyePhone" onclick="toggleVisibility('phone', 'eyePhone')"></i>
                     </div>
                 </div>
                 <div class="section">
                     <label for="dob">Date of Birth</label>
                     <div class="eye-container">
-                        <input type="date" id="dob" value="1990-01-01" readonly>
+                        <input type="password" id="dob" value="1990-01-01" readonly>
                         <i class="fas fa-eye-slash eye-icon" id="eyeDob" onclick="toggleVisibility('dob', 'eyeDob')"></i>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Right section with Emergency Contact, Medical Info, and QR Code -->
         <div class="right-section">
-            <!-- Emergency Contact -->
+            <!-- Emergency Contact Section -->
             <div class="section">
                 <div class="section-header">Emergency Contact</div>
                 <div class="eye-container">
                     <label for="contactName">Contact Name</label>
-                    <input type="text" id="contactName" value="Jamie Smith" readonly>
+                    <input type="password" id="contactName" value="Jamie Smith" readonly>
                     <i class="fas fa-eye-slash eye-icon" id="eyeContactName" onclick="toggleVisibility('contactName', 'eyeContactName')"></i>
                 </div>
                 <div class="eye-container">
                     <label for="contactNumber">Contact Number</label>
-                    <input type="text" id="contactNumber" value="+0987654321" readonly>
+                    <input type="password" id="contactNumber" value="+0987654321" readonly>
                     <i class="fas fa-eye-slash eye-icon" id="eyeContactNumber" onclick="toggleVisibility('contactNumber', 'eyeContactNumber')"></i>
                 </div>
             </div>
 
-            <!-- Medical Information -->
+            <!-- Medical Information Section -->
             <div class="section">
                 <div class="section-header">Medical Information</div>
                 <div class="eye-container">
-                    <label for="bloodType">Blood Type</label>
-                    <input type="text" id="bloodType" value="O+" readonly>
-                    <i class="fas fa-eye-slash eye-icon" id="eyeBloodType" onclick="toggleVisibility('bloodType', 'eyeBloodType')"></i>
-                </div>
-                <div class="eye-container">
-                    <label for="height">Height</label>
-                    <input type="text" id="height" value="180 cm" readonly>
-                    <i class="fas fa-eye-slash eye-icon" id="eyeHeight" onclick="toggleVisibility('height', 'eyeHeight')"></i>
-                </div>
-                <div class="eye-container">
-                    <label for="weight">Weight</label>
-                    <input type="text" id="weight" value="75 kg" readonly>
-                    <i class="fas fa-eye-slash eye-icon" id="eyeWeight" onclick="toggleVisibility('weight', 'eyeWeight')"></i>
-                </div>
-                <div class="eye-container">
                     <label for="allergies">Allergies</label>
                     <input type="text" id="allergies" value="Peanuts" readonly>
-                    <i class="fas fa-eye-slash eye-icon" id="eyeAllergies" onclick="toggleVisibility('allergies', 'eyeAllergies')"></i>
+                    <i class="fas fa-eye eye-icon" id="eyeAllergies" onclick="toggleVisibility('allergies', 'eyeAllergies')"></i>
+                </div>
+                <div class="eye-container">
+                    <label for="conditions">Conditions</label>
+                    <input type="password" id="conditions" value="Type 2 Diabetes" readonly>
+                    <i class="fas fa-eye-slash eye-icon" id="eyeConditions" onclick="toggleVisibility('conditions', 'eyeConditions')"></i>
                 </div>
                 <div class="eye-container">
                     <label for="medications">Current Medications</label>
-                    <input type="text" id="medications" value="None" readonly>
-                    <i class="fas fa-eye-slash eye-icon" id="eyeMedications" onclick="toggleVisibility('medications', 'eyeMedications')"></i>
+                    <input type="text" id="medications" value="Metformin" readonly>
+                    <i class="fas fa-eye eye-icon" id="eyeMedications" onclick="toggleVisibility('medications', 'eyeMedications')"></i>
+                </div>
+                <div class="eye-container">
+                    <label for="diagnosis">Diagnosis</label>
+                    <input type="text" id="diagnosis" value="Diabetes Mellitus" readonly>
+                    <i class="fas fa-eye eye-icon" id="eyeDiagnosis" onclick="toggleVisibility('diagnosis', 'eyeDiagnosis')"></i>
                 </div>
             </div>
-
-            <!-- Self-care Section (Optional, you can adjust this as needed) -->
+            <!-- Care Plans Section -->
+            <!-- Care Plans Section -->
             <div class="section">
-                <div class="section-header">Self-care</div>
-                <textarea id="selfCare" placeholder="Self-care notes (optional)" readonly>Exercise regularly and maintain a balanced diet.</textarea>
+                <div class="section-header">Care Plans</div>
+                
+                <div class="eye-container">
+                    <label for="carePlanName">Care Plan Name</label>
+                    <input type="text" id="carePlanName" value="Basic Care Plan" readonly>
+                    <i class="fas fa-eye eye-icon" id="eyeCarePlanName" onclick="toggleVisibility('carePlanName', 'eyeCarePlanName')"></i>
+                </div>
+                <div class="eye-container">
+                    <label for="carePlanNumber">Care Plan Number</label>
+                    <input type="password" id="carePlanNumber" value="CP12345" readonly>
+                    <i class="fas fa-eye-slash eye-icon" id="eyeCarePlanNumber" onclick="toggleVisibility('carePlanNumber', 'eyeCarePlanNumber')"></i>
+                </div>
+                <div class="eye-container">
+                    <label for="carePlanCompany">Care Plan Company</label>
+                    <input type="text" id="carePlanCompany" value="HealthCare Inc." readonly>
+                    <i class="fas fa-eye eye-icon" id="eyeCarePlanCompany" onclick="toggleVisibility('carePlanCompany', 'eyeCarePlanCompany')"></i>
+                </div>
+                <div class="eye-container">
+                    <label for="effectiveDate">Effective Date</label>
+                    <input type="date" id="effectiveDate" value="2023-01-01" readonly>
+                    <i class="fas fa-eye eye-icon" id="eyeEffectiveDate" onclick="toggleVisibility('effectiveDate', 'eyeEffectiveDate')"></i>
+                </div>
+            </div>
+            <!-- Enable Quick Help -->
+            <div class="section">
+                <label for="quickHelpEnabled">Enable Quick Help</label>
+                <input type="checkbox" id="quickHelpEnabled" checked>
+                <p><strong>Note:</strong> If enabled, the following emergency questions will be shown after the QR code is scanned.</p>
+            </div>
+            <!-- Emergency Self-care Actions Section -->
+            <div class="section" id="emergencySelfCare">
+                <div class="section-header">Emergency Self-care Actions</div>
+                
+                <!-- Question 1 -->
+                <div>
+                    <strong>Question 1:</strong> What should be done if the condition worsens? 
+                    <i class="fas fa-eye eye-icon-quick-help" id="eyeConditionWorsens" onclick="toggleVisibility('conditionWorsens', 'eyeConditionWorsens')"></i>
+                    <br>
+                    <textarea id="conditionWorsens" placeholder="Enter the emergency actions for your condition..." readonly>Monitor blood sugar levels regularly. Administer insulin as prescribed. Seek medical assistance if blood sugar remains high or low.</textarea>
+                </div>
+
+                <!-- Question 2 -->
+                <div>
+                    <strong>Question 2:</strong> What immediate steps should be taken in case of an emergency?
+                    <i class="fas fa-eye eye-icon-quick-help" id="eyeEmergencySteps" onclick="toggleVisibility('emergencySteps', 'eyeEmergencySteps')"></i>
+                    <br>
+                    <textarea id="emergencySteps" placeholder="Enter the immediate steps to take in case of emergency..." readonly>If blood sugar falls below 3.0 mmol/L, administer glucose or sugary drink immediately. If unconscious, call emergency services immediately.</textarea>
+                </div>
+
+                <!-- Question 3 -->
+                <div>
+                    <strong>Question 3:</strong> What medications or treatments are needed in the emergency situation?
+                    <i class="fas fa-eye eye-icon-quick-help" id="eyeEmergencyMedications" onclick="toggleVisibility('emergencyMedications', 'eyeEmergencyMedications')"></i>
+                    <br>
+                    <textarea id="emergencyMedications" placeholder="Enter medications or treatments required..." readonly>Insulin as prescribed for managing blood sugar levels. Glucose tablets or syrup if experiencing hypoglycemia. Administer antihypertensive medications if blood pressure is high (if applicable).</textarea>
+                </div>
             </div>
 
             <!-- QR Code -->
             <div class="section qr-code">
-                <div class="section-header">QR Code</div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=JohnDoeProfile" alt="QR Code">
+                <div class="section-header">QR Code(Click to view the user profile page after scanning the QR)</div>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=JohnDoeProfile" alt="QR Code" onclick="qrscanned()">
+                <p><strong>Note:</strong> Fields marked with a <i class="fas fa-eye-slash"></i> (Hide) will not be visible after the QR code is scanned.</p>
+            </div>
+
+            <!-- Disclaimer about PIPEDA -->
+            <div class="section">
+                <p><strong>Disclaimer:</strong> By using this platform, you acknowledge and consent to the collection and usage of your personal and medical data in compliance with <a href="https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/pipeda_brief/" target="_blank">PIPEDA law</a> of Canada.</p>
             </div>
 
             <!-- Save Changes Button -->
@@ -219,19 +183,44 @@
     <script>
         // Logout function to redirect to the signup page
         function logout() {
-            window.location.href = "signup.html";  // Redirect to signup page
+            window.location.href = "index.html";  // Redirect to signup page
+        }
+
+        // qrscanned function to redirect to the page after QR is scanned
+        function qrscanned() {
+            window.open("qrscanned.html", "_blank");  // Open in a new tab
         }
 
         // Toggle visibility function for each field
         function toggleVisibility(inputId, eyeId) {
             var inputField = document.getElementById(inputId);
             var eyeIcon = document.getElementById(eyeId);
-            if (inputField.type === "password" || inputField.type === "text") {
-                inputField.type = inputField.type === "password" ? "text" : "password";  // Toggle visibility
-                eyeIcon.classList.toggle('fa-eye-slash');
+            var parentContainer = inputField.parentNode;
+            console.log(inputField);
+            console.log(inputField.type);
+            console.log(inputField.tagName);
+            // If it's a textarea, toggle the visibility of the text inside
+            if (inputField.tagName === "TEXTAREA") {
                 eyeIcon.classList.toggle('fa-eye');
+                eyeIcon.classList.toggle('fa-eye-slash');
+                inputField.classList.toggle('hidden-text');  // Toggle visibility of the text in textarea
+            } else if (inputField.type === "password" || inputField.type === "text") {
+                // If it's an input field, toggle between password and text types
+                inputField.type = inputField.type === "password" ? "text" : "password";  // Show/hide text
+                eyeIcon.classList.toggle('fa-eye');
+                eyeIcon.classList.toggle('fa-eye-slash');
             }
         }
+        // Toggle display of emergency self-care actions based on Quick Help checkbox
+        document.getElementById('quickHelpEnabled').addEventListener('change', function() {
+            var selfCareSection = document.getElementById('emergencySelfCare');
+            if (this.checked) {
+                selfCareSection.style.display = 'block';  // Show self-care questions
+            } else {
+                selfCareSection.style.display = 'none';  // Hide self-care questions
+            }
+        });
+
     </script>
 
 </body>
