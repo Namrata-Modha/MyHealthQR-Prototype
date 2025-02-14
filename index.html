@@ -98,7 +98,7 @@
         <!-- Date of Birth -->
         <div class="terms-container">
             <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" required onchange="checkGuardianConsent()">
+            <input type="date" id="dob" onchange="checkGuardianConsent()" required>
             <!-- Guardian Consent Checkbox (shown if user is under 18) -->
             <div class="input-field" id="guardianConsentField" style="display: none;">
                 <input type="checkbox" id="guardianConsent">
@@ -135,7 +135,16 @@
         // Function to check if the user is under 18 based on DOB
         function checkGuardianConsent() {
             const dob = new Date(document.getElementById('dob').value);
-            const age = new Date().getFullYear() - dob.getFullYear();
+            // Get today's date
+            const today = new Date();
+            // Calculate age based on the difference in years
+            let age = today.getFullYear() - dob.getFullYear();
+            // Calculate the difference in months
+            const monthDiff = today.getMonth() - dob.getMonth();
+            // Adjust age if the current month and day are before the birth month and day
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
             const guardianConsentField = document.getElementById('guardianConsentField');
     
             if (age < 18) {
