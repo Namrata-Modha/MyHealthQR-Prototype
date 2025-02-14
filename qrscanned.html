@@ -173,57 +173,43 @@
                         <label for="lastName">Last Name</label>
                         <span id="lastName">Doe</span>
                     </div>
-
-                    <div class="profile-info">
-                        <label for="email">Email</label>
-                        <span id="email">johndoe@example.com</span>
-                    </div>
                 </div>
             </div>
-
+            
             <!-- Medical Info Section (Right) -->
             <div class="col">
+                <!-- Emergency Contact Section -->
                 <div class="section">
-                    <div class="section-header">Medical Information</div>
+                    <div class="section-header">Emergency Contact</div>
                     <div class="profile-info">
-                        <label for="allergies">Allergies</label>
-                        <span id="allergies">Peanuts</span>
+                        <label for="contactName">Contact Name</label>
+                        <span id="contactName">Jamie Smith</span>
                     </div>
 
                     <div class="profile-info">
-                        <label for="medications">Current Medications</label>
-                        <span id="medications">Metformin</span>
-                    </div>
-
-                    <div class="profile-info">
-                        <label for="diagnosis">Diagnosis</label>
-                        <span id="diagnosis">Diabetes Mellitus</span>
+                        <label for="contactNumber">Contact Number</label>
+                        <span id="contactNumber">+0987654321</span>
                     </div>
                 </div>
+                
             </div>
         </div>
+        <div class="section">
+            <div class="section-header">Medical Information</div>
+            <div class="profile-info">
+                <label for="allergies">Allergies</label>
+                <span id="allergies">Peanuts, Dairy, Pollen</span>
+            </div>
 
-        <!-- Row for Care Plans and Emergency Contact -->
-        <div class="row">
-            <!-- Care Plan Section (Left) -->
-            <div class="col">
-                <div class="section">
-                    <div class="section-header">Care Plans</div>
-                    <div class="profile-info">
-                        <label for="carePlanName">Care Plan Name</label>
-                        <span id="carePlanName">Basic Care Plan</span>
-                    </div>
-
-                    <div class="profile-info">
-                        <label for="carePlanCompany">Care Plan Company</label>
-                        <span id="carePlanCompany">HealthCare Inc.</span>
-                    </div>
-
-                    <div class="profile-info">
-                        <label for="effectiveDate">Effective Date</label>
-                        <span id="effectiveDate">2023-01-01</span>
-                    </div>
-                </div>
+            <div class="profile-info">
+                <label for="medications">Current Medications</label>
+                <span id="medications">Metformin, Insulin, Aspirin</span>
+            </div>
+        </div>
+        <div class="section">
+            <label for="insurance">Do you have insurance?</label>
+            <div class="eye-container">
+                <input type="checkbox" id="insurance" checked>
             </div>
         </div>
 
@@ -238,21 +224,21 @@
     <div class="quick-help-popup" id="quickHelpPopup">
         <div class="section-header">Emergency Self-care Actions</div>
         <div>
-            <strong>Question 1:</strong> What should be done if the condition worsens?
-            <br>
-            <p>Monitor blood sugar levels regularly. Administer insulin as prescribed. Seek medical assistance if blood sugar remains high or low.</p>
-        </div>
-
-        <div>
-            <strong>Question 2:</strong> What immediate steps should be taken in case of an emergency?
+            <strong>Question 1:</strong> What immediate steps should be taken in case of an emergency?
             <br>
             <p>If blood sugar falls below 3.0 mmol/L, administer glucose or sugary drink immediately. If unconscious, call emergency services immediately.</p>
         </div>
 
         <div>
-            <strong>Question 3:</strong> What medications or treatments are needed in the emergency situation?
+            <strong>Question 2:</strong> What medications or treatments are needed in the emergency situation?
             <br>
             <p>Insulin as prescribed for managing blood sugar levels. Glucose tablets or syrup if experiencing hypoglycemia. Administer antihypertensive medications if blood pressure is high (if applicable).</p>
+        </div>
+
+        <div>
+            <strong>Question 3:</strong> What should be done if the condition worsens?
+            <br>
+            <p>Monitor blood sugar levels regularly. Administer insulin as prescribed. Seek medical assistance if blood sugar remains high or low.</p>
         </div>
 
         <button onclick="closePopup()">Close</button>

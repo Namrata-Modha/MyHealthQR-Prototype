@@ -49,6 +49,9 @@
         .terms-container label {
             font-size: 14px;
         }
+        .terms-container input[type="checkbox"] {
+            margin-right: 8px;
+        }
         .links {
             text-align: center;
             margin-top: 15px;
@@ -68,42 +71,79 @@
     <div class="form-container">
         <h2>Signup for MyHealthQR</h2>
 
+        <!-- First Name -->
         <div class="terms-container">
             <label for="firstname">First Name</label>
             <input type="text" id="firstname" name="firstname" required>
+        </div>
 
-            <label for="lastname">Last name</label>
+        <!-- Last Name -->
+        <div class="terms-container">
+            <label for="lastname">Last Name</label>
             <input type="text" id="lastname" name="lastname" required>
+        </div>
 
+        <!-- Email -->
+        <div class="terms-container">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
+        </div>
 
+        <!-- Password -->
+        <div class="terms-container">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
-
-            <div class="terms-container">
-                <label for="terms">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>.
-                </label>
-            </div>
-
-            <div class="terms-container">
-                <label for="pipedacompliance">
-                    <input type="checkbox" id="pipedacompliance" name="pipedacompliance" required>
-                    I consent to the collection and use of my personal data in compliance with <a href="https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/pipeda_brief/" target="_blank">PIPEDA (Canadian law)</a>.
-                </label>
-            </div>
-
-            <button type="submit">Sign Up</button>
         </div>
 
-        <!-- Links to Login and Forgot Password -->
-        <div class="links">
-            <p>Already have an account? <a href="login.html">Login</a></p>
-            <p><a href="forgot-password.html">Forgot your password?</a></p>
+        <!-- Date of Birth -->
+        <div class="terms-container">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required onchange="checkGuardianConsent()">
+            <!-- Guardian Consent Checkbox (shown if user is under 18) -->
+            <div class="input-field" id="guardianConsentField" style="display: none;">
+                <input type="checkbox" id="guardianConsent">
+                <label for="guardianConsent">I am the guardian of this user</label>
+            </div>
         </div>
+
+        <!-- Terms and PIPEDA Compliance -->
+        <div class="terms-container">
+            <label for="terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>.
+            </label>
+        </div>
+
+        <div class="terms-container">
+            <label for="pipedacompliance">
+                <input type="checkbox" id="pipedacompliance" name="pipedacompliance" required>
+                I consent to the collection and use of my personal data in compliance with <a href="https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/pipeda_brief/" target="_blank">PIPEDA (Canadian law)</a>.
+            </label>
+        </div>
+
+        <!-- Sign Up Button -->
+        <button type="submit">Sign Up</button>
+        
+    <!-- Links to Login -->
+    <div class="links">
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
     </div>
 
+
+    <script>
+        // Function to check if the user is under 18 based on DOB
+        function checkGuardianConsent() {
+            const dob = new Date(document.getElementById('dob').value);
+            const age = new Date().getFullYear() - dob.getFullYear();
+            const guardianConsentField = document.getElementById('guardianConsentField');
+    
+            if (age < 18) {
+                guardianConsentField.style.display = 'block';  // Show consent if under 18
+            } else {
+                guardianConsentField.style.display = 'none';  // Hide consent if 18 or older
+            }
+        }
+    </script>
 </body>
 </html>

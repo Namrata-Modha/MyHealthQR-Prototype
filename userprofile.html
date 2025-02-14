@@ -15,11 +15,16 @@
         <!-- Navigation Bar (Menu) inside the form container -->
         <div class="navbar">
             <a href="logs.html">View Logs</a>
+            <a href="change-password.html">Change Password</a>
         </div>
 
+        <!-- Print Button -->
+        <button class="print-btn" onclick="printQRCode()">Print QR Code</button>
+        
         <!-- Logout Button -->
         <button class="logout-btn" onclick="logout()">Logout</button>
-
+        
+        <!-- User Profile Form -->
         <div class="left-section">
             <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Profile Image">
             <div class="profile-info">
@@ -42,26 +47,23 @@
                     <label for="email">Email</label>
                     <div class="eye-container">
                         <input type="email" id="email" value="johndoe@example.com" readonly>
-                        <i class="fas fa-eye eye-icon" id="eyeEmail" onclick="toggleVisibility('email', 'eyeEmail')"></i>
                     </div>
                 </div>
                 <div class="section">
                     <label for="phone">Phone Number</label>
                     <div class="eye-container">
-                        <input type="password" id="phone" value="+1234567890" readonly>
-                        <i class="fas fa-eye-slash eye-icon" id="eyePhone" onclick="toggleVisibility('phone', 'eyePhone')"></i>
+                        <input type="text" id="phone" value="+1234567890" readonly>
                     </div>
                 </div>
                 <div class="section">
                     <label for="dob">Date of Birth</label>
                     <div class="eye-container">
-                        <input type="password" id="dob" value="1990-01-01" readonly>
-                        <i class="fas fa-eye-slash eye-icon" id="eyeDob" onclick="toggleVisibility('dob', 'eyeDob')"></i>
+                        <input type="text" id="dob" value="1990-01-01" readonly>
                     </div>
                 </div>
             </div>
         </div>
-
+        <!-- Right Section -->
         <div class="right-section">
             <!-- Emergency Contact Section -->
             <div class="section">
@@ -69,118 +71,96 @@
                 <div class="eye-container">
                     <label for="contactName">Contact Name</label>
                     <input type="password" id="contactName" value="Jamie Smith" readonly>
-                    <i class="fas fa-eye-slash eye-icon" id="eyeContactName" onclick="toggleVisibility('contactName', 'eyeContactName')"></i>
+                    <i class="fas fa-eye eye-icon" id="eyeContactName" onclick="toggleVisibility('contactName', 'eyeContactName')"></i>
                 </div>
                 <div class="eye-container">
                     <label for="contactNumber">Contact Number</label>
                     <input type="password" id="contactNumber" value="+0987654321" readonly>
-                    <i class="fas fa-eye-slash eye-icon" id="eyeContactNumber" onclick="toggleVisibility('contactNumber', 'eyeContactNumber')"></i>
+                    <i class="fas fa-eye eye-icon" id="eyeContactNumber" onclick="toggleVisibility('contactNumber', 'eyeContactNumber')"></i>
                 </div>
             </div>
 
             <!-- Medical Information Section -->
             <div class="section">
                 <div class="section-header">Medical Information</div>
-                <div class="eye-container">
-                    <label for="allergies">Allergies</label>
-                    <input type="text" id="allergies" value="Peanuts" readonly>
-                    <i class="fas fa-eye eye-icon" id="eyeAllergies" onclick="toggleVisibility('allergies', 'eyeAllergies')"></i>
+            
+                <!-- Allergies (Comma separated) -->
+                <div class="profile-info">
+                    <label for="allergies">Allergies (Comma separated)</label>
+                    <div class="eye-container">
+                        <textarea id="allergies" placeholder="Enter allergies (e.g., Peanuts, Dairy)" readonly>Peanuts, Dairy, Pollen</textarea>
+                        <i class="fas fa-eye eye-icon" id="eyeAllergies" onclick="toggleVisibility('allergies', 'eyeAllergies')"></i>
+                    </div>
                 </div>
-                <div class="eye-container">
-                    <label for="conditions">Conditions</label>
-                    <input type="password" id="conditions" value="Type 2 Diabetes" readonly>
-                    <i class="fas fa-eye-slash eye-icon" id="eyeConditions" onclick="toggleVisibility('conditions', 'eyeConditions')"></i>
+            
+                <!-- Conditions (Comma separated) -->
+                <div class="profile-info">
+                    <label for="conditions">Conditions (Comma separated)</label>
+                    <div class="eye-container">
+                        <textarea id="conditions" placeholder="Enter conditions (e.g., Type 2 Diabetes)" readonly class="hidden-text">Type 2 Diabetes, Hypertension</textarea>
+                        <i class="fas fa-eye-slash eye-icon" id="eyeConditions" onclick="toggleVisibility('conditions', 'eyeConditions')"></i>
+                    </div>
                 </div>
-                <div class="eye-container">
-                    <label for="medications">Current Medications</label>
-                    <input type="text" id="medications" value="Metformin" readonly>
-                    <i class="fas fa-eye eye-icon" id="eyeMedications" onclick="toggleVisibility('medications', 'eyeMedications')"></i>
-                </div>
-                <div class="eye-container">
-                    <label for="diagnosis">Diagnosis</label>
-                    <input type="text" id="diagnosis" value="Diabetes Mellitus" readonly>
-                    <i class="fas fa-eye eye-icon" id="eyeDiagnosis" onclick="toggleVisibility('diagnosis', 'eyeDiagnosis')"></i>
+            
+                <!-- Medications (Comma separated) -->
+                <div class="profile-info">
+                    <label for="medications">Current Medications (Comma separated)</label>
+                    <div class="eye-container">
+                        <textarea id="medications" placeholder="Enter medications (e.g., Metformin, Insulin)" readonly>Metformin, Insulin, Aspirin</textarea>
+                        <i class="fas fa-eye eye-icon" id="eyeMedications" onclick="toggleVisibility('medications', 'eyeMedications')"></i>
+                    </div>
                 </div>
             </div>
-            <!-- Care Plans Section -->
-            <!-- Care Plans Section -->
+
+            <!-- Do you have Insurance Section -->
             <div class="section">
-                <div class="section-header">Care Plans</div>
-                
+                <label for="insurance">Do you have insurance?</label>
                 <div class="eye-container">
-                    <label for="carePlanName">Care Plan Name</label>
-                    <input type="text" id="carePlanName" value="Basic Care Plan" readonly>
-                    <i class="fas fa-eye eye-icon" id="eyeCarePlanName" onclick="toggleVisibility('carePlanName', 'eyeCarePlanName')"></i>
-                </div>
-                <div class="eye-container">
-                    <label for="carePlanNumber">Care Plan Number</label>
-                    <input type="password" id="carePlanNumber" value="CP12345" readonly>
-                    <i class="fas fa-eye-slash eye-icon" id="eyeCarePlanNumber" onclick="toggleVisibility('carePlanNumber', 'eyeCarePlanNumber')"></i>
-                </div>
-                <div class="eye-container">
-                    <label for="carePlanCompany">Care Plan Company</label>
-                    <input type="text" id="carePlanCompany" value="HealthCare Inc." readonly>
-                    <i class="fas fa-eye eye-icon" id="eyeCarePlanCompany" onclick="toggleVisibility('carePlanCompany', 'eyeCarePlanCompany')"></i>
-                </div>
-                <div class="eye-container">
-                    <label for="effectiveDate">Effective Date</label>
-                    <input type="date" id="effectiveDate" value="2023-01-01" readonly>
-                    <i class="fas fa-eye eye-icon" id="eyeEffectiveDate" onclick="toggleVisibility('effectiveDate', 'eyeEffectiveDate')"></i>
+                    <input type="checkbox" id="insurance" checked>
+                    <i class="fas fa-eye eye-icon" id="eyeInsurance" onclick="toggleVisibility('insurance', 'eyeInsurance')"></i>
                 </div>
             </div>
-            <!-- Health Records Section (New) -->
-            <div class="section">
-                <div class="section-header">Health Records</div>
-                <div class="eye-container">
-                    <label for="recordType">Record Type</label>
-                    <input type="password" id="recordType" value="Lab Test" readonly>
-                    <i class="fas fa-eye-slash eye-icon" id="eyeRecordType" onclick="toggleVisibility('recordType', 'eyeRecordType')"></i>
-                </div>
-                <div class="eye-container">
-                    <label for="recordDetails">Record Details</label>
-                    <input type="password" id="recordDetails" value="Blood Test results: Normal" readonly>
-                    <i class="fas fa-eye-slash eye-icon" id="eyeRecordDetails" onclick="toggleVisibility('recordDetails', 'eyeRecordDetails')"></i>
-                </div>
-            </div>
+            
             <!-- Enable Quick Help -->
             <div class="section">
                 <label for="quickHelpEnabled">Enable Quick Help</label>
                 <input type="checkbox" id="quickHelpEnabled" checked>
                 <p><strong>Note:</strong> If enabled, the following emergency questions will be shown after the QR code is scanned.</p>
             </div>
+            
             <!-- Emergency Self-care Actions Section -->
             <div class="section" id="emergencySelfCare">
                 <div class="section-header">Emergency Self-care Actions</div>
                 
                 <!-- Question 1 -->
                 <div>
-                    <strong>Question 1:</strong> What should be done if the condition worsens? 
-                    <i class="fas fa-eye eye-icon-quick-help" id="eyeConditionWorsens" onclick="toggleVisibility('conditionWorsens', 'eyeConditionWorsens')"></i>
-                    <br>
-                    <textarea id="conditionWorsens" placeholder="Enter the emergency actions for your condition..." readonly>Monitor blood sugar levels regularly. Administer insulin as prescribed. Seek medical assistance if blood sugar remains high or low.</textarea>
-                </div>
-
-                <!-- Question 2 -->
-                <div>
-                    <strong>Question 2:</strong> What immediate steps should be taken in case of an emergency?
+                    <strong>Question 1:</strong> What immediate steps should be taken in case of an emergency?
                     <i class="fas fa-eye eye-icon-quick-help" id="eyeEmergencySteps" onclick="toggleVisibility('emergencySteps', 'eyeEmergencySteps')"></i>
                     <br>
                     <textarea id="emergencySteps" placeholder="Enter the immediate steps to take in case of emergency..." readonly>If blood sugar falls below 3.0 mmol/L, administer glucose or sugary drink immediately. If unconscious, call emergency services immediately.</textarea>
                 </div>
 
-                <!-- Question 3 -->
+                <!-- Question 2 -->
                 <div>
-                    <strong>Question 3:</strong> What medications or treatments are needed in the emergency situation?
+                    <strong>Question 2:</strong> What medications or treatments are needed in the emergency situation?
                     <i class="fas fa-eye eye-icon-quick-help" id="eyeEmergencyMedications" onclick="toggleVisibility('emergencyMedications', 'eyeEmergencyMedications')"></i>
                     <br>
                     <textarea id="emergencyMedications" placeholder="Enter medications or treatments required..." readonly>Insulin as prescribed for managing blood sugar levels. Glucose tablets or syrup if experiencing hypoglycemia. Administer antihypertensive medications if blood pressure is high (if applicable).</textarea>
+                </div>
+
+                <!-- Question 3 -->
+                <div>
+                    <strong>Question 3:</strong> What should be done if the condition worsens? 
+                    <i class="fas fa-eye eye-icon-quick-help" id="eyeConditionWorsens" onclick="toggleVisibility('conditionWorsens', 'eyeConditionWorsens')"></i>
+                    <br>
+                    <textarea id="conditionWorsens" placeholder="Enter the emergency actions for your condition..." readonly>Monitor blood sugar levels regularly. Administer insulin as prescribed. Seek medical assistance if blood sugar remains high or low.</textarea>
                 </div>
             </div>
 
             <!-- QR Code -->
             <div class="section qr-code">
                 <div class="section-header">QR Code(Click to view the user profile page after scanning the QR)</div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=JohnDoeProfile" alt="QR Code" onclick="qrscanned()">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=JohnDoeProfile" alt="QR Code" onclick="qrscanned()" id="qrCodeImage">
                 <p><strong>Note:</strong> Fields marked with a <i class="fas fa-eye-slash"></i> (Hide) will not be visible after the QR code is scanned.</p>
             </div>
 
@@ -205,6 +185,17 @@
             window.open("qrscanned.html", "_blank");  // Open in a new tab
         }
 
+        // Print function for QR Code
+        function printQRCode() {
+            var qrCodeImage = document.getElementById('qrCodeImage').src;
+            var printWindow = window.open('', '', 'width=600,height=400');
+            printWindow.document.write('<html><head><title>Print QR Code</title></head><body>');
+            printWindow.document.write('<h1>MyHealthQR - User Profile QR Code</h1>');
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+
         // Toggle visibility function for each field
         function toggleVisibility(inputId, eyeId) {
             var inputField = document.getElementById(inputId);
@@ -223,7 +214,12 @@
                 inputField.type = inputField.type === "password" ? "text" : "password";  // Show/hide text
                 eyeIcon.classList.toggle('fa-eye');
                 eyeIcon.classList.toggle('fa-eye-slash');
+            } else if (inputField.type === "checkbox") {
+                eyeIcon.classList.toggle('fa-eye');
+                eyeIcon.classList.toggle('fa-eye-slash');
             }
+
+            
         }
         // Toggle display of emergency self-care actions based on Quick Help checkbox
         document.getElementById('quickHelpEnabled').addEventListener('change', function() {
